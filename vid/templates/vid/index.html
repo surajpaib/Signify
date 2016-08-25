@@ -1,0 +1,34 @@
+{% load staticfiles %}
+<html>
+    <head>
+        <title>Youtube for Deaf</title>
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+        <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+        <link rel="stylesheet" href="{% static 'css/vid.css' %}">
+    </head>
+    <body>
+        <div class="page-header">
+            <a href="{% url 'embed' %}" class="top-menu"><span class="glyphicon glyphicon-plus"></span></a>
+            <h1><a href="/">YFD</a></h1>
+            <h2>{{ basic }}</h2>
+            <h3>{{ process }}</h3>
+            <h2>
+                 {% for video in videos %}
+                     <div>
+
+        <p>url: <a href="{% url 'vid_detail' pk=video.pk %}">{{ video.url }}</a></p>
+                     </div>
+                 {% endfor %}
+            </h2>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

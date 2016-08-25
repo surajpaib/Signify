@@ -1,0 +1,16 @@
+{% extends 'vid/index.html' %}
+
+{% load embed_video_tags %}
+{% block content %}
+    <div class="video">
+        {% if video.url %}
+            {% load embed_video_tags %}
+            {% video 'https://youtu.be/L2WWmE3PzX0' 'large' %}
+
+        {% endif %}
+    </div>
+
+  <!--  <video name='demo' controls autoplay width='50%' height='40%'>
+    <source src="/static/Skeleton.mp4" type="video/mp4" />
+    </video> -->
+{% endblock %}
