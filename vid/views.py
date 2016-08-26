@@ -44,7 +44,7 @@ def embed(request):
         if form.is_valid():
             video = form.save(commit=False)
             video.save()
-            return redirect('vid_detail', pk=video.pk)
+            return redirect('vid/vid_detail', pk=video.pk)
     else:
         form = MyVideoForm()
     return render(request, 'vid/embed.html', {'form': form})
